@@ -78,10 +78,10 @@ const shoppingList = (function(){
     });
   }
 
-  function toggleCheckedForListItem(id) {
-    const foundItem = store.items.find(item => item.id === id);
-    foundItem.checked = !foundItem.checked;
-  }
+  // function toggleCheckedForListItem(id) {
+  //   const foundItem = store.items.find(item => item.id === id);
+  //   foundItem.checked = !foundItem.checked;
+  // }
 
 
   function getItemIdFromElement(item) {
@@ -98,15 +98,15 @@ const shoppingList = (function(){
     });
   }
 
-  function deleteListItem(id) {
-    const index = store.items.findIndex(item => item.id === id);
-    store.items.splice(index, 1);
-  }
+  // function deleteListItem(id) {
+  //   const index = store.items.findIndex(item => item.id === id);
+  //   store.items.splice(index, 1);
+  // }
 
-  function editListItemName(id, itemName) {
-    const item = store.items.find(item => item.id === id);
-    item.name = itemName;
-  }
+  // function editListItemName(id, itemName) {
+  //   const item = store.items.find(item => item.id === id);
+  //   item.name = itemName;
+  // }
 
   function toggleCheckedItemsFilter() {
     store.hideCheckedItems = !store.hideCheckedItems;

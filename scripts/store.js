@@ -5,41 +5,45 @@ const store = (function () {
 
   const findById = function(id) {
     console.log('findById run')
-    const foundItem = store.items.find(item => items.id === id);
+    const foundItem = store.items.find(items => items.id === id);
     console.log(foundItem, 'foundItem from store');
     return foundItem
-  }
+  };
 
   const addItems = function(name) {
+    console.log('addItems run')
     try {
         Item.validateName(name)
-        Item.create(name)
-        store.items.push(name)
+        const created = Item.create(name)
+        store.items.push(created)
     }
       catch(error) {
         console.log('Cannot add item: name not valid');
     }
+  };
 
-  // const findAndToggleChecked = function(id) {
-  //   this.findById(id);
-  //   foundItem.checked = !foundItem.checked;
-  // }
-  //
-  // const findAndUpdateName = function(id, newName) {
-  //   try {
-  //       Item.validateName(newName)
-  //       Item.findById(id)
-  //       this.name = newName
-  //   }
-  //     catch(error) {
-  //       console.log('Cannot update name: {error.message}');
-  //   }
-  // }
-  //
-  // const findAndDelete = function(id){
-  //   const index = store.items.findIndex(item => items.id === id)
-  //   store.items.splice(index, 1);
-  // }
+  const findAndToggleChecked = function(id) {
+    const foundItem = this.findById(id)
+    foundItem.checked = !foundItem.checked;
+  };
+
+  const findAndUpdateName = function(id, newName) {
+    try {
+        Item.validateName(newName)
+        const foundItem = this.findById(id)
+        foundItem.name = newName
+    }
+      catch(error) {
+        console.log('Cannot update name: {error.message}');
+    }
+  };
+
+  const findAndDelete = function(id){
+    const index = store.items.findIndex(items => items.id === id)
+    console.log(index, 'index of deleted item')
+    console.log(store.items)
+    store.items.splice(index, 1);
+  }
 
     const items = [
         { id: cuid(), name: 'apples', checked: false },
@@ -55,6 +59,9 @@ const store = (function () {
          hideCheckedItems : hideCheckedItems,
          searchTerm : searchTerm,
          findById : findById,
-         addItems : addItems
+         addItems : addItems,
+         findAndToggleChecked : findAndToggleChecked,
+         findAndUpdateName : findAndUpdateName,
+         findAndDelete : findAndDelete
       };
 }() );
