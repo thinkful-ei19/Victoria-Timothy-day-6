@@ -2,7 +2,7 @@
 
 // eslint-disable-next-line no-unused-vars
 const store = (function () {
-
+    
   const findById = function(id) {
     console.log('findById run')
     const foundItem = store.items.find(items => items.id === id);
@@ -26,6 +26,13 @@ const store = (function () {
     const foundItem = this.findById(id)
     foundItem.checked = !foundItem.checked;
   };
+  
+  const toggleCheckedFilter = function(){
+    this.hideCheckedItems = !this.hideCheckedItems;
+  };
+  const setSearchTerm = function(val){
+    this.searchTerm = val;
+  }
 
   const findAndUpdateName = function(id, newName) {
     try {
@@ -62,6 +69,8 @@ const store = (function () {
          addItems : addItems,
          findAndToggleChecked : findAndToggleChecked,
          findAndUpdateName : findAndUpdateName,
-         findAndDelete : findAndDelete
+         findAndDelete : findAndDelete,
+         setSearchTerm : setSearchTerm,
+         toggleCheckedFilter : toggleCheckedFilter
       };
 }() );
