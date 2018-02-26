@@ -1,20 +1,22 @@
 const Item = (function(){
+    return {
+      validateName : validateName,
+      create : create
+    };
+
+  }());
+
   function validateName(name) {
-    if (name === undefiend ){
+    if (name === '' ){
       throw new TypeError (console.log("Name does not exist."))
     }
   }
 
- function create(name) {
+  function create(name) {
+
    return itemObj = {
      id : cuid(),
-     name : '',
+     name : name,
      checked : false
    }
- }
-    return {
-      validateName()
-      create()
-    };
-
-  }());
+  }

@@ -4,7 +4,7 @@
 
 
 $(document).ready(function() {
-  const itemNames = [ '', 'apples', 'pears' ];
+  const itemNames = [ '', 'pasta', 'sugar' ];
   itemNames.forEach(name => {
     try {
       Item.validateName(name);
