@@ -3,7 +3,7 @@
 // eslint-disable-next-line no-unused-vars
 const store = (function () {
    
-
+   
     const items = [
         { id: cuid(), name: 'apples', checked: false },
         { id: cuid(), name: 'oranges', checked: false },
@@ -13,6 +13,10 @@ const store = (function () {
     const hideCheckedItems = false;
     const searchTerm = '';
 
-
+      return {
+         items : items, 
+         hideCheckedItems : hideCheckedItems,
+         searchTerm : searchTerm
+      };
 }() );
 
